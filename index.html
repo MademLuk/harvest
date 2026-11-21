@@ -17,7 +17,7 @@ main{max-width:640px;margin:0 auto;padding:20px 16px 60px;display:grid;gap:18px}
 .phead{display:grid;gap:6px}.ptitle{font-size:28px;letter-spacing:-.025em;font-weight:800}
 .pgroup{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .pgname{font-weight:700;background:var(--surface);padding:6px 14px;border-radius:999px}
-.pgroups{display:grid;gap:10px}.pgroups button{padding:16px;font-size:18px;border-radius:14px;text-align:left;background:#fff}
+.pgroups{display:grid;gap:10px}.pgroups button{padding:16px;font-size:18px;border-radius:14px;text-align:left;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:10px}.pgroups button.mine{border:2px solid var(--ink);font-weight:700}.pgroups small{font-size:13px;color:var(--mute);font-weight:500}
 .five{display:grid;gap:12px}
 .lrow{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:14px 12px;border-radius:16px;background:var(--surface);position:relative}
 .lrow::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:3px;background:var(--kc,transparent)}
@@ -34,7 +34,7 @@ main{max-width:640px;margin:0 auto;padding:20px 16px 60px;display:grid;gap:18px}
 .pdone{background:var(--sol-tint);color:var(--sol);padding:18px;border-radius:16px;font-weight:700;font-size:18px;text-align:center}</style></head>
 <body class="phone"><header><span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22V9" style="stroke:#161616" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M12 13C12 9 15 6 20 6c0 4-3 7-8 7z" style="fill:#2E7D5B"/><path d="M12 10C12 6.5 9.5 4 5 4c0 3.5 2.5 6 7 6z" style="fill:#C2432D"/><circle cx="12" cy="22" r="1.8" style="fill:#B5852B"/></svg>Harvest</span><span class="spacer"></span><button class="ghost" id="langBtn" type="button">EN</button></header><main id="main"></main>
 <script>
-const T={"en": {"loading": "Loading…", "noSession": "This session was not found. Ask the facilitator for a new QR code.", "pickGroup": "Which group are you?", "rename": "Rename group", "phoneHelp": "Write the 5 things from the simulation that stayed in your mind. For each one: the role (institution and character), problem or solution.", "leafPh": "What stayed in your mind…", "role": "Role", "person": "Character in the simulation", "personPh": "e.g. the Mayor", "kind": "It is", "problem": "Problem", "solution": "Solution", "saving": "Saving…", "savedOk": "Sent ✓", "notSent": "Not sent. Check the internet, it will retry.", "done": "Thank you! Your 5 leaves are on the tree. Look at the screen."}, "pl": {"loading": "Ładowanie…", "noSession": "Nie znaleziono tej sesji. Poproś prowadzącego o nowy kod QR.", "pickGroup": "Która to grupa?", "rename": "Zmień nazwę grupy", "phoneHelp": "Zapiszcie 5 rzeczy z symulacji, które zostały Wam w głowie. Przy każdej: rola (instytucja i postać), problem czy rozwiązanie.", "leafPh": "Co zostało w głowie…", "role": "Rola", "person": "Postać w symulacji", "personPh": "np. Pani Burmistrz", "kind": "To jest", "problem": "Problem", "solution": "Rozwiązanie", "saving": "Zapisuję…", "savedOk": "Wysłane ✓", "notSent": "Nie wysłano. Sprawdź internet, spróbuję ponownie.", "done": "Dziękujemy! Wasze 5 liści jest już na drzewie. Spójrzcie na ekran."}};
+const T={"en": {"loading": "Loading…", "noSession": "This session was not found. Ask the facilitator for a new QR code.", "pickGroup": "Which group are you?", "yourGroup": "Your group", "rename": "Rename group", "phoneHelp": "Write the 5 things from the simulation that stayed in your mind. For each one: the role (institution and character), problem or solution.", "leafPh": "What stayed in your mind…", "role": "Role", "person": "Character in the simulation", "personPh": "e.g. the Mayor", "kind": "It is", "problem": "Problem", "solution": "Solution", "saving": "Saving…", "savedOk": "Sent ✓", "notSent": "Not sent. Check the internet, it will retry.", "done": "Thank you! Your 5 leaves are on the tree. Look at the screen."}, "pl": {"loading": "Ładowanie…", "noSession": "Nie znaleziono tej sesji. Poproś prowadzącego o nowy kod QR.", "pickGroup": "Która to grupa?", "yourGroup": "Twoja grupa", "rename": "Zmień nazwę grupy", "phoneHelp": "Zapiszcie 5 rzeczy z symulacji, które zostały Wam w głowie. Przy każdej: rola (instytucja i postać), problem czy rozwiązanie.", "leafPh": "Co zostało w głowie…", "role": "Rola", "person": "Postać w symulacji", "personPh": "np. Pani Burmistrz", "kind": "To jest", "problem": "Problem", "solution": "Rozwiązanie", "saving": "Zapisuję…", "savedOk": "Wysłane ✓", "notSent": "Nie wysłano. Sprawdź internet, spróbuję ponownie.", "done": "Dziękujemy! Wasze 5 liści jest już na drzewie. Spójrzcie na ekran."}};
 const SB_URL="https://tnvqrxbqrsajlekdudug.supabase.co";
 const SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRudnFyeGJxcnNhamxla2R1ZHVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMzODc3NjksImV4cCI6MjEwODk2Mzc2OX0.j-MXrCBEcEUtpeW03P-lUlIiAA9l57i80QjLTEjCdNM";
 const $=id=>document.getElementById(id);
@@ -65,7 +65,8 @@ async function groupApp(sid,gid){
  function draw(){document.documentElement.lang=P.lang;$("langBtn").textContent=P.lang==="en"?"PL":"EN";
   const head=el("div",{class:"phead"},el("p",{class:"eyebrow"},"Harvest · KDS"),el("h1",{class:"ptitle"},P.cfg.title||"Harvest"));
   const g=groups.find(x=>x.id===gid);
-  if(!g){m.replaceChildren(head,el("div",{class:"card"},el("h2",{},tt("pickGroup")),el("div",{class:"pgroups"},...groups.map(x=>el("button",{type:"button",onclick:()=>setG(x.id)},x.name)))));return}
+  if(!g){let mine="";try{mine=localStorage.getItem("harvest-kds.g."+sid)||""}catch(e){}const list=groups.slice().sort((a,b)=>(b.id===mine)-(a.id===mine));
+   m.replaceChildren(head,el("div",{class:"card"},el("h2",{},tt("pickGroup")),el("div",{class:"pgroups"},...list.map(x=>el("button",{type:"button",class:x.id===mine?"mine":"",onclick:()=>setG(x.id)},x.name,x.id===mine?el("small",{},tt("yourGroup")):null)))));return}
   const rows=[1,2,3,4,5].map(slot=>{const L=P.leaves[slot]||(P.leaves[slot]={text:"",role:"",person:"",kind:""});const role=roles.find(r=>r.id===L.role);
    const seg=k=>el("button",{type:"button",class:"seg "+k,"aria-pressed":String(L.kind===k),onclick:e=>{L.kind=L.kind===k?"":k;e.target.parentNode.querySelectorAll(".seg").forEach(b=>b.setAttribute("aria-pressed",String(b.classList.contains(L.kind)&&!!L.kind)));e.target.closest(".lrow").className="lrow"+(L.kind?" k-"+L.kind:"");send(slot)}},tt(k));
    const dl="pdl"+slot;
@@ -83,7 +84,6 @@ async function groupApp(sid,gid){
    el("div",{class:"pprog",id:"pprog"},el("b",{},"0/5"),el("span",{class:"pbar"},el("i"))),
    el("div",{class:"pdone",id:"pdone",hidden:true},tt("done")));
   [1,2,3,4,5].forEach(i=>{if((P.leaves[i].text||"").trim()&&!P.st[i])P.st[i]="ok";mark(i)});progress()}
- if(!gid){try{gid=localStorage.getItem("harvest-kds.g."+sid)||""}catch(e){}}
  if(gid&&groups.some(x=>x.id===gid)){try{localStorage.setItem("harvest-kds.g."+sid,gid)}catch(e){}loadMine()}else{gid="";draw()}}
 
 const QS=new URLSearchParams(location.search);
