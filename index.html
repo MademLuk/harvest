@@ -8,33 +8,33 @@ button:hover{border-color:var(--ink)}:focus-visible{outline:2px solid var(--ink)
 .ghost{background:transparent;border-color:transparent;color:var(--mute);padding:5px 9px}
 input,textarea,select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:16px}
 input:focus,textarea:focus,select:focus{border-color:var(--ink);outline:none}textarea{resize:vertical}
-h1,h2{font-weight:600;margin:0;line-height:1.15;letter-spacing:-.015em}h2{font-size:22px}
+h1,h2{font-weight:700;margin:0;line-height:1.15;letter-spacing:-.015em}h2{font-size:22px}
 header{border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;gap:10px}
 .logo{display:flex;align-items:center;gap:8px;font:600 19px/1 var(--font)}.logo svg{width:22px;height:22px}.spacer{flex:1}
 main{max-width:640px;margin:0 auto;padding:20px 16px 60px;display:grid;gap:18px}
 .card{background:var(--surface);border-radius:18px;padding:22px;display:grid;gap:14px}.empty{text-align:center}.muted{color:var(--mute)}
 .help{color:var(--mute);font-size:16px}.eyebrow{display:none}
-.phead{display:grid;gap:6px}.ptitle{font-size:28px;letter-spacing:-.025em}
+.phead{display:grid;gap:6px}.ptitle{font-size:28px;letter-spacing:-.025em;font-weight:800}
 .pgroup{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.pgname{font-weight:600;background:var(--surface);padding:6px 14px;border-radius:999px}
+.pgname{font-weight:700;background:var(--surface);padding:6px 14px;border-radius:999px}
 .pgroups{display:grid;gap:10px}.pgroups button{padding:16px;font-size:18px;border-radius:14px;text-align:left;background:#fff}
 .five{display:grid;gap:12px}
 .lrow{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:14px 12px;border-radius:16px;background:var(--surface);position:relative}
 .lrow::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:3px;background:var(--kc,transparent)}
 .lrow.k-problem{--kc:var(--prob)}.lrow.k-solution{--kc:var(--sol)}
-.num{font:500 22px/1 var(--font);color:#A3A39E;text-align:center;padding-top:8px}
+.num{font:700 22px/1 var(--font);color:var(--ink);text-align:center;padding-top:8px}
 .lbody{display:grid;gap:10px;min-width:0}.lmeta{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}.lmeta .mini:last-child{grid-column:1/-1}
 .mini{display:grid;gap:5px;font:500 13px/1.2 var(--font);color:var(--mute)}.mini select,.mini input{color:var(--ink)}
 .segs{display:flex;gap:6px}.seg{flex:1;border-radius:999px;padding:12px;font-weight:500;color:var(--mute)}
-.seg.problem[aria-pressed="true"]{background:var(--prob-tint);border-color:var(--prob);color:var(--prob)}
-.seg.solution[aria-pressed="true"]{background:var(--sol-tint);border-color:var(--sol);color:var(--sol)}
+.seg.problem[aria-pressed="true"]{background:var(--prob-tint);border-color:var(--prob);color:var(--prob);font-weight:700}
+.seg.solution[aria-pressed="true"]{background:var(--sol-tint);border-color:var(--sol);color:var(--sol);font-weight:700}
 .pst{font-size:13px;color:var(--mute);min-height:16px}.pst.ok{color:var(--sol)}.pst.err{color:var(--prob)}
-.pprog{display:flex;align-items:center;gap:10px;font-weight:600}.pbar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.pprog{display:flex;align-items:center;gap:10px;font-weight:700}.pbar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
 .pbar i{display:block;height:100%;width:0;background:var(--sol);transition:width .5s cubic-bezier(.16,1,.3,1)}
-.pdone{background:var(--sol-tint);color:var(--sol);padding:18px;border-radius:16px;font-weight:600;font-size:18px;text-align:center}</style></head>
-<body class="phone"><header><span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22V9" stroke="#161616" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M12 13C12 9 15 6 20 6c0 4-3 7-8 7z" fill="#2E7D5B"/><path d="M12 10C12 6.5 9.5 4 5 4c0 3.5 2.5 6 7 6z" fill="#C2432D"/><circle cx="12" cy="22" r="1.8" fill="#B5852B"/></svg>Harvest</span><span class="spacer"></span><button class="ghost" id="langBtn" type="button">EN</button></header><main id="main"></main>
+.pdone{background:var(--sol-tint);color:var(--sol);padding:18px;border-radius:16px;font-weight:700;font-size:18px;text-align:center}</style></head>
+<body class="phone"><header><span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22V9" style="stroke:#161616" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M12 13C12 9 15 6 20 6c0 4-3 7-8 7z" style="fill:#2E7D5B"/><path d="M12 10C12 6.5 9.5 4 5 4c0 3.5 2.5 6 7 6z" style="fill:#C2432D"/><circle cx="12" cy="22" r="1.8" style="fill:#B5852B"/></svg>Harvest</span><span class="spacer"></span><button class="ghost" id="langBtn" type="button">EN</button></header><main id="main"></main>
 <script>
-const T={"en": {"loading": "Loading…", "noSession": "This session was not found. Ask the facilitator for a new QR code.", "pickGroup": "Which group are you?", "changeGroup": "Change group", "phoneHelp": "Write the 5 things from the simulation that stayed in your mind. For each one: the role, the person, problem or solution. No real names, please.", "leafPh": "What stayed in your mind…", "role": "Role", "person": "Person", "personPh": "The character", "kind": "It is", "problem": "Problem", "solution": "Solution", "saving": "Saving…", "savedOk": "Sent ✓", "notSent": "Not sent. Check the internet, it will retry.", "done": "Thank you! Your 5 leaves are on the tree. Look at the screen."}, "pl": {"loading": "Ładowanie…", "noSession": "Nie znaleziono tej sesji. Poproś prowadzącego o nowy kod QR.", "pickGroup": "Która to grupa?", "changeGroup": "Zmień grupę", "phoneHelp": "Zapiszcie 5 rzeczy z symulacji, które zostały Wam w głowie. Przy każdej: rola, osoba, problem czy rozwiązanie. Prosimy bez prawdziwych imion i nazwisk.", "leafPh": "Co zostało w głowie…", "role": "Rola", "person": "Osoba", "personPh": "Postać", "kind": "To jest", "problem": "Problem", "solution": "Rozwiązanie", "saving": "Zapisuję…", "savedOk": "Wysłane ✓", "notSent": "Nie wysłano. Sprawdź internet, spróbuję ponownie.", "done": "Dziękujemy! Wasze 5 liści jest już na drzewie. Spójrzcie na ekran."}};
+const T={"en": {"loading": "Loading…", "noSession": "This session was not found. Ask the facilitator for a new QR code.", "pickGroup": "Which group are you?", "rename": "Rename group", "phoneHelp": "Write the 5 things from the simulation that stayed in your mind. For each one: the role, the person, problem or solution. No real names, please.", "leafPh": "What stayed in your mind…", "role": "Role", "person": "Person", "personPh": "The character", "kind": "It is", "problem": "Problem", "solution": "Solution", "saving": "Saving…", "savedOk": "Sent ✓", "notSent": "Not sent. Check the internet, it will retry.", "done": "Thank you! Your 5 leaves are on the tree. Look at the screen."}, "pl": {"loading": "Ładowanie…", "noSession": "Nie znaleziono tej sesji. Poproś prowadzącego o nowy kod QR.", "pickGroup": "Która to grupa?", "rename": "Zmień nazwę grupy", "phoneHelp": "Zapiszcie 5 rzeczy z symulacji, które zostały Wam w głowie. Przy każdej: rola, osoba, problem czy rozwiązanie. Prosimy bez prawdziwych imion i nazwisk.", "leafPh": "Co zostało w głowie…", "role": "Rola", "person": "Osoba", "personPh": "Postać", "kind": "To jest", "problem": "Problem", "solution": "Rozwiązanie", "saving": "Zapisuję…", "savedOk": "Wysłane ✓", "notSent": "Nie wysłano. Sprawdź internet, spróbuję ponownie.", "done": "Dziękujemy! Wasze 5 liści jest już na drzewie. Spójrzcie na ekran."}};
 const SB_URL="https://tnvqrxbqrsajlekdudug.supabase.co";
 const SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRudnFyeGJxcnNhamxla2R1ZHVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMzODc3NjksImV4cCI6MjEwODk2Mzc2OX0.j-MXrCBEcEUtpeW03P-lUlIiAA9l57i80QjLTEjCdNM";
 const $=id=>document.getElementById(id);
@@ -50,7 +50,7 @@ async function groupApp(sid,gid){
  P.lang=P.cfg.lang||"pl";try{const l=localStorage.getItem("harvest-kds.lang");if(l)P.lang=l}catch(e){}
  const groups=P.cfg.groups||[],roles=P.cfg.roles||[];
  $("langBtn").onclick=()=>{P.lang=P.lang==="en"?"pl":"en";try{localStorage.setItem("harvest-kds.lang",P.lang)}catch(e){}draw()};
- const setG=id=>{gid=id;const u=new URL(location.href);if(id)u.searchParams.set("g",id);else u.searchParams.delete("g");history.replaceState(null,"",u);if(id)loadMine();else draw()};
+ const setG=id=>{gid=id;try{localStorage.setItem("harvest-kds.g."+sid,id)}catch(e){}const u=new URL(location.href);if(id)u.searchParams.set("g",id);else u.searchParams.delete("g");history.replaceState(null,"",u);if(id)loadMine();else draw()};
  async function loadMine(){P.leaves={};try{(await rpc("kds_group_leaves",{p_session:sid,p_group:gid})||[]).forEach(r=>P.leaves[r.slot]={text:r.text,role:r.role_id||"",person:r.person,kind:r.kind||""})}catch(e){}draw()}
  const timers={};
  function send(slot){clearTimeout(timers[slot]);P.st[slot]="saving";mark(slot);timers[slot]=setTimeout(async()=>{const L=P.leaves[slot];
@@ -59,6 +59,9 @@ async function groupApp(sid,gid){
  function mark(slot){const s=document.querySelector(`[data-st="${slot}"]`);if(!s)return;const st=P.st[slot];s.className="pst "+(st||"");s.textContent=st==="saving"?tt("saving"):st==="ok"?tt("savedOk"):st==="err"?tt("notSent"):""}
  function progress(){const n=[1,2,3,4,5].filter(i=>(P.leaves[i]?.text||"").trim()&&P.st[i]!=="err"&&P.st[i]!=="saving").length;const p=$("pprog");if(p){p.querySelector("b").textContent=n+"/5";p.querySelector("i").style.width=(n*20)+"%"}
   const d=$("pdone");if(d)d.hidden=n<5}
+ function renameUI(g){const box=document.querySelector(".pgroup");const inp=el("input",{value:g.name,maxlength:"40",style:"flex:1"});
+  const done=async()=>{const v=inp.value.trim();if(v&&v!==g.name){try{if(await rpc("kds_group_rename",{p_session:sid,p_group:gid,p_name:v}))g.name=v}catch(e){}}draw()};
+  inp.addEventListener("keydown",e=>{if(e.key==="Enter")done();if(e.key==="Escape")draw()});box.replaceChildren(inp,el("button",{type:"button",onclick:done},"OK"));inp.focus();inp.select()}
  function draw(){document.documentElement.lang=P.lang;$("langBtn").textContent=P.lang==="en"?"PL":"EN";
   const head=el("div",{class:"phead"},el("p",{class:"eyebrow"},"Harvest · KDS"),el("h1",{class:"ptitle"},P.cfg.title||"Harvest"));
   const g=groups.find(x=>x.id===gid);
@@ -74,13 +77,14 @@ async function groupApp(sid,gid){
       el("div",{class:"mini"},el("span",{},tt("kind")),el("div",{class:"segs"},seg("problem"),seg("solution")))),
      el("span",{class:"pst","data-st":slot})))});
   m.replaceChildren(head,
-   el("div",{class:"pgroup"},el("span",{class:"pgname"},g.name),groups.length>1?el("button",{class:"ghost",type:"button",onclick:()=>setG("")},tt("changeGroup")):null),
+   el("div",{class:"pgroup"},el("span",{class:"pgname"},g.name),el("button",{class:"ghost",type:"button",onclick:()=>renameUI(g)},"✎ "+tt("rename"))),
    el("div",{class:"help"},el("span",{},tt("phoneHelp"))),
    el("div",{class:"five"},...rows),
    el("div",{class:"pprog",id:"pprog"},el("b",{},"0/5"),el("span",{class:"pbar"},el("i"))),
    el("div",{class:"pdone",id:"pdone",hidden:true},tt("done")));
   [1,2,3,4,5].forEach(i=>{if((P.leaves[i].text||"").trim()&&!P.st[i])P.st[i]="ok";mark(i)});progress()}
- if(gid&&groups.some(x=>x.id===gid))loadMine();else{gid="";draw()}}
+ if(!gid){try{gid=localStorage.getItem("harvest-kds.g."+sid)||""}catch(e){}}
+ if(gid&&groups.some(x=>x.id===gid)){try{localStorage.setItem("harvest-kds.g."+sid,gid)}catch(e){}loadMine()}else{gid="";draw()}}
 
 const QS=new URLSearchParams(location.search);
 if(QS.get("s"))groupApp(QS.get("s"),QS.get("g")||"");
